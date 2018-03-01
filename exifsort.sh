@@ -99,6 +99,7 @@ if [[ "$1" == "doAction" && "$2" != "" ]]; then
  # Lowercase and use the current extension as-is
  EXT=`echo "$2" | awk -F. '{print $NF}' | tr '[:upper:]' '[:lower:]'`
  fi;
+ 
  # Evaluate the file name
  if [ "$TS_AS_FILENAME" == "TRUE" ]; then
  # Get date and times from EXIF stamp
@@ -110,9 +111,11 @@ if [[ "$1" == "doAction" && "$2" != "" ]]; then
  echo " Will rename to $UDSTAMP.$EXT"
  MVCMD="/$UDSTAMP.$EXT"
  fi;
+ 
  # DIRectory NAME for the file move
  # sed issue for y command fix provided by thomas
- DIRNAME=`echo $EDATE | sed y-:-/-`
+ # cut day, FIXME: make this optional
+ DIRNAME=`echo $EDATE | sed y-:-/- | cut -c 1-5`
  echo -n " Moving to ${MOVETO} ${DIRNAME} ${MVCMD} ... "
  mkdir -p "${MOVETO}${DIRNAME}" && mv -b -f "$2" "${MOVETO}${DIRNAME}${MVCMD}"
  echo "done."
