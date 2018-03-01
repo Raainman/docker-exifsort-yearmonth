@@ -116,7 +116,7 @@ if [[ "$1" == "doAction" && "$2" != "" ]]; then
  # sed issue for y command fix provided by thomas
  # cut day, FIXME: make this optional
  DIRNAME=`echo $EDATE | sed y-:-/- | cut -c 1-5`
- echo -n " Moving to ${MOVETO} ${DIRNAME} ${MVCMD} ... "
+ echo -n " Moving to ${MOVETO}${DIRNAME}${MVCMD} ... "
  mkdir -p "${MOVETO}${DIRNAME}" && mv -b -f "$2" "${MOVETO}${DIRNAME}${MVCMD}"
  echo "done."
  echo ""
