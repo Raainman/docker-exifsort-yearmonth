@@ -12,7 +12,7 @@ COPY exifsort.sh /usr/local/bin/exifsort.sh
 
 RUN chmod +x /usr/local/bin/exifsort.sh
 
-ENV TS_AS_FILENAME=FALSE USE_LMDATE=TRUE USE_FILE_EXT=TRUE JPEG_TO_JPG=FALSE
+ENV TS_AS_FILENAME=TRUE USE_LMDATE=TRUE USE_FILE_EXT=TRUE JPEG_TO_JPG=FALSE
 ENV FILETYPES "*.jpg" "*.jpeg"
 
 WORKDIR /var/photo
