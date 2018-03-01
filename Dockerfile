@@ -18,3 +18,4 @@ ENV FILETYPES "*.jpg" "*.jpeg"
 WORKDIR /var/photo
 
 CMD /usr/local/bin/exifsort.sh /var/photo
+
