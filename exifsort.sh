@@ -3,6 +3,7 @@
 #
 # The following are the only settings you should need to change:
 #
+#
 # TS_AS_FILENAME: This can help eliminate duplicate images during sorting.
 # TRUE: File will be renamed to the Unix timestamp and its extension.
 # FALSE (any non-TRUE value): Filename is unchanged.
