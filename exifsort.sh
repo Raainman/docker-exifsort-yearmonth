@@ -67,7 +67,7 @@ MOVETO=""
 # Are we supposed to run an action? If not, skip this entire section.
 if [[ "$1" == "doAction" && "$2" != "" ]]; then
  # Check for EXIF and process it
- echo -n ": Checking EXIF... "
+ echo -n ": Checking EXIF... "		
  DATETIME=`identify -verbose "$2" | grep "exif:DateTimeDigitized:" | awk -F' ' '{print $2" "$3}'`
  if [[ "$DATETIME" == "" ]]; then
  echo "not found."
@@ -106,11 +106,17 @@ if [[ "$1" == "doAction" && "$2" != "" ]]; then
  ETIME=`echo $DATETIME | awk -F' ' '{print $2}'`
  # Unix Formatted DATE and TIME - For feeding to date()
  UFDATE=`echo $EDATE | sed y/:/-/`
- # Unix DateSTAMP
- UDSTAMP=`date -d "$UFDATE $ETIME" +%s`
+ # YYYY_MM_DD_HH_MM_SS
+ UDSTAMP=`echo $DATETIME | awk -F' ' '{print $2"_"$3}' | sed y/:/_/`
+ #UDSTAMP=`date -d "$UFDATE $ETIME" +%s`
  echo " Will rename to $UDSTAMP.$EXT"
  MVCMD="/$UDSTAMP.$EXT"
  fi;
+ 
+ # identify -verbose blabla.jpg  | grep "exif:DateTimeDigitized:" | awk -F' ' '{print $2"_"$3}' | sed y/:/_/
+
+ 
+ 
  
  # DIRectory NAME for the file move
  # sed issue for y command fix provided by thomas
