@@ -67,7 +67,7 @@ MOVETO=""
 if [[ "$1" == "doAction" && "$2" != "" ]]; then
  # Check for EXIF and process it
  echo -n ": Checking EXIF... "
- DATETIME=`identify -verbose "$2" | grep "exif:DateTime:" | awk -F' ' '{print $2" "$3}'`
+ DATETIME=`identify -verbose "$2" | grep "exif:DateTimeDigitized::" | awk -F' ' '{print $2" "$3}'`
  if [[ "$DATETIME" == "" ]]; then
  echo "not found."
  if [[ $USE_LMDATE == "TRUE" ]]; then
