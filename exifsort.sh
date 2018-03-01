@@ -114,8 +114,10 @@ if [[ "$1" == "doAction" && "$2" != "" ]]; then
  fi;
  
  # identify -verbose blabla.jpg  | grep "exif:DateTimeDigitized:" | awk -F' ' '{print $2"_"$3}' | sed y/:/_/
+# werkt niet !!!
+# 
+ # echo 2010:06:01 17:21:15 | awk -F' ' '{print $2" "$3}'
 
- 
  
  
  # DIRectory NAME for the file move
