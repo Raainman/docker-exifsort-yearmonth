@@ -113,7 +113,7 @@ if [[ "$1" == "doAction" && "$2" != "" ]]; then
  # DIRectory NAME for the file move
  # sed issue for y command fix provided by thomas
  DIRNAME=`echo $EDATE | sed y-:-/-`
- echo -n " Moving to ${MOVETO}${DIRNAME}${MVCMD} ... "
+ echo -n " Moving to ${MOVETO} ${DIRNAME} ${MVCMD} ... "
  mkdir -p "${MOVETO}${DIRNAME}" && mv -b -f "$2" "${MOVETO}${DIRNAME}${MVCMD}"
  echo "done."
  echo ""
