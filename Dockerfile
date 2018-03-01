@@ -8,6 +8,7 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
+RUN [“chmod”, “+x”, "/usr/local/bin/exifsort.sh”]
 
 COPY exifsort.sh /usr/local/bin/exifsort.sh
 
