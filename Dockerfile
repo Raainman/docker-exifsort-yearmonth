@@ -8,9 +8,9 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
-RUN [“chmod”, “+x”, "/usr/local/bin/exifsort.sh”]
-
 COPY exifsort.sh /usr/local/bin/exifsort.sh
+
+RUN [“chmod”, “+x”, "/usr/local/bin/exifsort.sh”]
 
 ENV TS_AS_FILENAME=FALSE USE_LMDATE=TRUE USE_FILE_EXT=TRUE JPEG_TO_JPG=FALSE
 ENV FILETYPES "*.jpg" "*.jpeg"
