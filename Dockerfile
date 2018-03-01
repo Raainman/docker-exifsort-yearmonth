@@ -6,8 +6,8 @@ LABEL maintainer "Raymond Koppen" \
 RUN apt-get update \
   && apt-get install -y imagemagick file \
   && apt-get clean \
-  && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/* \
-  && chmod +x exifsort.sh
+  && rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+
 
 COPY exifsort.sh /usr/local/bin/exifsort.sh
 
