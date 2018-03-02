@@ -4,8 +4,6 @@ That said, this container is to sort jpg files into a YYYY/MM structure, it will
 
 You can use this with the following docker command;
 
-docker run --name exifsort-yearmonth --rm -it -v <your photo folder>:/var/photo raainman/docker-exifsort-yearmonth
-
 Launch the ExifSort docker container with the following command:
 ```
 docker run -d -rm -it \
