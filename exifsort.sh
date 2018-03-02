@@ -110,7 +110,7 @@ if [[ "$1" == "doAction" && "$2" != "" ]]; then
  # Unix Formatted DATE and TIME - For feeding to date()
  UFDATE=`echo $EDATE | sed y/:/-/`
  # YYYY_MM_DD_HH_MM_SS
- UDSTAMP=`echo $DATETIME | sed y/:/_/`
+ UDSTAMP=`echo $DATETIME | sed y/:/_/ | sed 's/ /_/g'`
  #UDSTAMP="$FILENAAM"
  #UDSTAMP=`date -d "$UFDATE $ETIME" +%s`
  echo " Will rename to $UDSTAMP.$EXT"
