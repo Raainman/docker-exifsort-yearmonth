@@ -69,9 +69,9 @@ if [[ "$1" == "doAction" && "$2" != "" ]]; then
  # Check for EXIF and process it
  echo -n ": Checking EXIF... "		
  DATETIME=`identify -verbose "$2" | grep "exif:DateTimeDigitized:" | awk -F' ' '{print $2" "$3}'`
- FILENAAM=`identify -verbose "$2" | grep "exif:DateTimeDigitized:" | awk -F' ' '{print $2"_"$3}' | sed y/:/_/`
+ #FILENAAM=`identify -verbose "$2" | grep "exif:DateTimeDigitized:" | awk -F' ' '{print $2"_"$3}' | sed y/:/_/`
  
- echo -n ": Filenaam omgezet [ $FILENAAM ]"
+ #echo -n ": Filenaam omgezet [ $FILENAAM ]"
  if [[ "$DATETIME" == "" ]]; then
  echo "not found."
  if [[ $USE_LMDATE == "TRUE" ]]; then
@@ -110,8 +110,8 @@ if [[ "$1" == "doAction" && "$2" != "" ]]; then
  # Unix Formatted DATE and TIME - For feeding to date()
  UFDATE=`echo $EDATE | sed y/:/-/`
  # YYYY_MM_DD_HH_MM_SS
- #UDSTAMP=`echo $DATETIME | awk -F' ' '{print $2"_"$3}' | sed y/:/_/`
- UDSTAMP="$FILENAAM"
+ UDSTAMP=`echo $DATETIME | sed y/:/_/`
+ #UDSTAMP="$FILENAAM"
  #UDSTAMP=`date -d "$UFDATE $ETIME" +%s`
  echo " Will rename to $UDSTAMP.$EXT"
  MVCMD="/$UDSTAMP.$EXT"
